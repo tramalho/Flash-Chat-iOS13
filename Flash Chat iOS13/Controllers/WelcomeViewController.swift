@@ -20,6 +20,9 @@ class WelcomeViewController: UIViewController {
         animateLogo()
     }
     
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        
+    }
     private func animateLogo() {
         self.titleLabel.text = ""
         for (index, value) in animationMessage.enumerated() {

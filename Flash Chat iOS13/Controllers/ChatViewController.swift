@@ -8,18 +8,22 @@
 
 import UIKit
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, Credential {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        title = "⚡️FlashChat"
+        navigationItem.hidesBackButton = true
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
+        
     }
-    
-
+    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
+        logout()
+    }
 }

@@ -21,6 +21,15 @@ extension Credential {
         authenticate(emailTextfield: emailTextfield, passwordTextfield: passwordTextfield, isLogin: true)
     }
     
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+            exitOrError(nil)
+        } catch {
+            exitOrError(error)
+        }
+    }
+    
     fileprivate func authenticate(emailTextfield: String?, passwordTextfield: String?, isLogin: Bool) {
         
         if let email = emailTextfield, !email.isEmpty, let password = passwordTextfield, !password.isEmpty {
@@ -45,6 +54,14 @@ extension Credential {
             self.showDialog(message: error.localizedDescription)
         } else {
             self.performSegue(withIdentifier: identifier, sender: self)
+        }
+    }
+    
+    fileprivate func exitOrError(_ error: Error?) {
+        if let error = error {
+            self.showDialog(message: error.localizedDescription)
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
 }
