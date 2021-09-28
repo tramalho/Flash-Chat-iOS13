@@ -24,7 +24,7 @@ extension Credential {
     func logout() {
         do {
             try Auth.auth().signOut()
-            exitOrError(nil)
+            exitOrError()
         } catch {
             exitOrError(error)
         }
@@ -36,16 +36,16 @@ extension Credential {
             
             if isLogin {
                 Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                    self?.performOrError(error, identifier: "loginToChat")
+                    self?.performOrError(error, identifier: K.loginSegue)
                 }
             } else {
                 Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                    self.performOrError(error, identifier: "registerToChat")
+                    self.performOrError(error, identifier: K.registerSegue)
                 }
             }
              
          } else {
-            showDialog(message: "Invalid email or password")
+            showDialog(message: K.invalidCredentials)
          }
     }
     
@@ -57,7 +57,7 @@ extension Credential {
         }
     }
     
-    fileprivate func exitOrError(_ error: Error?) {
+    fileprivate func exitOrError(_ error: Error? = nil) {
         if let error = error {
             self.showDialog(message: error.localizedDescription)
         } else {
