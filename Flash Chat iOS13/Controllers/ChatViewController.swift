@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, Credential {
+class ChatViewController: UIViewController, Credential, Persistence {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
@@ -28,8 +28,11 @@ class ChatViewController: UIViewController, Credential {
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
-        
+        if let message = messageTextfield.text {
+            persist(message: message)
+        } 
     }
+    
     @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
         logout()
     }

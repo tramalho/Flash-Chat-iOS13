@@ -20,6 +20,7 @@
 		5F381C403CFAAF5F6F125731 /* Pods_Flash_Chat_iOS13.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED084DF01D2DD89D97931169 /* Pods_Flash_Chat_iOS13.framework */; };
 		9064077727086D1100063F6E /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064077527086D1100063F6E /* MessageTableViewCell.swift */; };
 		9064077827086D1100063F6E /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9064077627086D1100063F6E /* MessageTableViewCell.xib */; };
+		9064077A2708CF8100063F6E /* Firestore+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906407792708CF8100063F6E /* Firestore+UIViewController.swift */; };
 		90952C2526FFDA5700F45092 /* Dialog+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90952C2426FFDA5700F45092 /* Dialog+UIViewController.swift */; };
 		90952C2726FFDE0800F45092 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90952C2626FFDE0800F45092 /* GoogleService-Info.plist */; };
 		90952C2926FFFF0F00F45092 /* Credential+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90952C2826FFFF0F00F45092 /* Credential+UIViewController.swift */; };
@@ -42,6 +43,7 @@
 		0B62819D235F0F4D00E35CAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9064077527086D1100063F6E /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		9064077627086D1100063F6E /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		906407792708CF8100063F6E /* Firestore+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firestore+UIViewController.swift"; sourceTree = "<group>"; };
 		90952C2426FFDA5700F45092 /* Dialog+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+UIViewController.swift"; sourceTree = "<group>"; };
 		90952C2626FFDE0800F45092 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90952C2826FFFF0F00F45092 /* Credential+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Credential+UIViewController.swift"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				0B62818E235DF01000E35CAF /* LoginViewController.swift */,
 				0B628190235DF01B00E35CAF /* ChatViewController.swift */,
 				90952C2826FFFF0F00F45092 /* Credential+UIViewController.swift */,
+				906407792708CF8100063F6E /* Firestore+UIViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				0B628179235DEE8100E35CAF /* SceneDelegate.swift in Sources */,
 				90952C2526FFDA5700F45092 /* Dialog+UIViewController.swift in Sources */,
 				0B62818F235DF01000E35CAF /* LoginViewController.swift in Sources */,
+				9064077A2708CF8100063F6E /* Firestore+UIViewController.swift in Sources */,
 				90F142C9270329FD00ADEF6B /* Message.swift in Sources */,
 				0B628191235DF01B00E35CAF /* ChatViewController.swift in Sources */,
 				0B62818D235DF00B00E35CAF /* RegisterViewController.swift in Sources */,

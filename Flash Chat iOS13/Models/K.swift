@@ -16,6 +16,7 @@ struct K {
     static let dialogTitle = "Sorry"
     static let Ok = "Ok"
     static let invalidCredentials = "Invalid email or password"
+    static let errorSendMessage = "error send message, try again"
     
     struct BrandColors {
         static let purple = "BrandPurple"
