@@ -18,6 +18,8 @@
 		0B628191235DF01B00E35CAF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B628190235DF01B00E35CAF /* ChatViewController.swift */; };
 		0B62819E235F0F4D00E35CAF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0B62819D235F0F4D00E35CAF /* README.md */; };
 		5F381C403CFAAF5F6F125731 /* Pods_Flash_Chat_iOS13.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED084DF01D2DD89D97931169 /* Pods_Flash_Chat_iOS13.framework */; };
+		9064077727086D1100063F6E /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9064077527086D1100063F6E /* MessageTableViewCell.swift */; };
+		9064077827086D1100063F6E /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9064077627086D1100063F6E /* MessageTableViewCell.xib */; };
 		90952C2526FFDA5700F45092 /* Dialog+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90952C2426FFDA5700F45092 /* Dialog+UIViewController.swift */; };
 		90952C2726FFDE0800F45092 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90952C2626FFDE0800F45092 /* GoogleService-Info.plist */; };
 		90952C2926FFFF0F00F45092 /* Credential+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90952C2826FFFF0F00F45092 /* Credential+UIViewController.swift */; };
@@ -38,6 +40,8 @@
 		0B62818E235DF01000E35CAF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0B628190235DF01B00E35CAF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0B62819D235F0F4D00E35CAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9064077527086D1100063F6E /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		9064077627086D1100063F6E /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		90952C2426FFDA5700F45092 /* Dialog+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dialog+UIViewController.swift"; sourceTree = "<group>"; };
 		90952C2626FFDE0800F45092 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90952C2826FFFF0F00F45092 /* Credential+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Credential+UIViewController.swift"; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 			children = (
 				0B628181235DEE8400E35CAF /* LaunchScreen.storyboard */,
 				0B62817C235DEE8100E35CAF /* Main.storyboard */,
+				9064077527086D1100063F6E /* MessageTableViewCell.swift */,
+				9064077627086D1100063F6E /* MessageTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B628183235DEE8400E35CAF /* LaunchScreen.storyboard in Resources */,
+				9064077827086D1100063F6E /* MessageTableViewCell.xib in Resources */,
 				0B628180235DEE8400E35CAF /* Assets.xcassets in Resources */,
 				90952C2726FFDE0800F45092 /* GoogleService-Info.plist in Resources */,
 				0B62819E235F0F4D00E35CAF /* README.md in Resources */,
@@ -263,6 +270,7 @@
 				0B62818B235DF00000E35CAF /* WelcomeViewController.swift in Sources */,
 				0B628177235DEE8100E35CAF /* AppDelegate.swift in Sources */,
 				90952C2926FFFF0F00F45092 /* Credential+UIViewController.swift in Sources */,
+				9064077727086D1100063F6E /* MessageTableViewCell.swift in Sources */,
 				0B628179235DEE8100E35CAF /* SceneDelegate.swift in Sources */,
 				90952C2526FFDA5700F45092 /* Dialog+UIViewController.swift in Sources */,
 				0B62818F235DF01000E35CAF /* LoginViewController.swift in Sources */,

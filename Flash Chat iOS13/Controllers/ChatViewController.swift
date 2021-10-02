@@ -16,7 +16,7 @@ class ChatViewController: UIViewController, Credential {
     private let messages = [
         Message(sender: "a1@b.com", body: "Hey!"),
         Message(sender: "a@b.com", body: "Hello"),
-        Message(sender: "a1@b.com", body: "What up?"),
+        Message(sender: "a1@b.com", body: "Hey! Hello and What up? Hey! Hello and What up?"),
     ]
     
     override func viewDidLoad() {
@@ -24,6 +24,7 @@ class ChatViewController: UIViewController, Credential {
         tableView.dataSource = self
         title = K.appName
         navigationItem.hidesBackButton = true
+        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
@@ -38,10 +39,13 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
         
-        let message = messages[indexPath.row]
+        if let cell = cell as? MessageTableViewCell {
         
-        cell.textLabel?.text = message.body
-        
+            let message = messages[indexPath.row]
+    
+            cell.messageLabel.text = message.body
+        }
+
         return cell
     }
     

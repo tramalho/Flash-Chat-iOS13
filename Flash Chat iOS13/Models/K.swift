@@ -8,7 +8,7 @@
 
 struct K {
     static let cellIdentifier = "ReusableCell"
-    static let cellNibName = "MessageCell"
+    static let cellNibName = "MessageTableViewCell"
     static let registerSegue = "RegisterToChat"
     static let loginSegue = "LoginToChat"
     
