@@ -13,7 +13,7 @@ class ChatViewController: UIViewController, Credential {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
     
-    private var messages:[Message] = []
+    private var finalMessages:[Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ extension ChatViewController: UITableViewDataSource {
         
         if let cell = cell as? MessageTableViewCell {
         
-            let message = messages[indexPath.row]
+            let message = finalMessages[indexPath.row]
     
             cell.messageLabel.text = message.body
         }
@@ -52,7 +52,7 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return finalMessages.count
     }
 }
 
@@ -60,7 +60,7 @@ extension ChatViewController: Persistence {
     
     func resultData(messages: [Message]) {
         DispatchQueue.main.async {
-            self.messages = messages
+            self.finalMessages = messages
             self.tableView.reloadData()
         }
     }

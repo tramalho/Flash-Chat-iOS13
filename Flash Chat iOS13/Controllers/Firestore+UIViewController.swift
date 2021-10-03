@@ -35,9 +35,9 @@ extension Persistence {
     
     func retrieve() {
         
-        var messages: [Message] = []
-        
-        dbCollection().getDocuments { querySnapshot, error in
+        dbCollection().addSnapshotListener { querySnapshot, error in
+            
+            var messages: [Message] = []
             
             if let error = error {
                 self.showDialog(message: error.localizedDescription)
