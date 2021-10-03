@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 protocol Persistence: UIViewController {
-
+    func resultData(messages: [Message])
 }
 
 extension Persistence {
@@ -30,6 +30,28 @@ extension Persistence {
             
         } else {
             showDialog(message: K.errorSendMessage)
+        }
+    }
+    
+    func retrieve() {
+        
+        var messages: [Message] = []
+        
+        dbCollection().getDocuments { querySnapshot, error in
+            
+            if let error = error {
+                self.showDialog(message: error.localizedDescription)
+            } else {
+            
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let obj = Message(sender: data[K.FStore.senderField] as! String, body: data[K.FStore.bodyField] as! String)
+                    
+                    messages.append(obj)
+                }
+            }
+            
+            self.resultData(messages: messages)
         }
     }
     

@@ -8,16 +8,12 @@
 
 import UIKit
 
-class ChatViewController: UIViewController, Credential, Persistence {
+class ChatViewController: UIViewController, Credential {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
     
-    private let messages = [
-        Message(sender: "a1@b.com", body: "Hey!"),
-        Message(sender: "a@b.com", body: "Hello"),
-        Message(sender: "a1@b.com", body: "Hey! Hello and What up? Hey! Hello and What up?"),
-    ]
+    private var messages:[Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +21,8 @@ class ChatViewController: UIViewController, Credential, Persistence {
         title = K.appName
         navigationItem.hidesBackButton = true
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        
+        retrieve()
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
@@ -39,6 +37,7 @@ class ChatViewController: UIViewController, Credential, Persistence {
 }
 
 extension ChatViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
         
@@ -55,5 +54,14 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
+}
+
+extension ChatViewController: Persistence {
     
+    func resultData(messages: [Message]) {
+        DispatchQueue.main.async {
+            self.messages = messages
+            self.tableView.reloadData()
+        }
+    }
 }
