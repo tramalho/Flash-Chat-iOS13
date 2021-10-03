@@ -19,7 +19,7 @@ extension Persistence {
         
         if let email = Auth.auth().currentUser?.email {
             
-            let data = [K.FStore.senderField:email, K.FStore.bodyField: message]
+            let data: [String : Any] = [K.FStore.senderField:email, K.FStore.bodyField: message, K.FStore.dateField: Date().timeIntervalSince1970]
             
             dbCollection().addDocument(data: data) { error in
                
@@ -35,7 +35,7 @@ extension Persistence {
     
     func retrieve() {
         
-        dbCollection().addSnapshotListener { querySnapshot, error in
+        dbCollection().order(by: K.FStore.dateField).addSnapshotListener { querySnapshot, error in
             
             var messages: [Message] = []
             
@@ -45,6 +45,7 @@ extension Persistence {
             
                 for document in querySnapshot!.documents {
                     let data = document.data()
+                    
                     let obj = Message(sender: data[K.FStore.senderField] as! String, body: data[K.FStore.bodyField] as! String)
                     
                     messages.append(obj)
