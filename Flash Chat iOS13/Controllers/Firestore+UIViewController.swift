@@ -14,10 +14,10 @@ protocol Persistence: UIViewController {
 }
 
 extension Persistence {
-    
+        
     func persist(message: String) {
         
-        if let email = Auth.auth().currentUser?.email {
+        if let email = currentUser() {
             
             let data: [String : Any] = [K.FStore.senderField:email, K.FStore.bodyField: message, K.FStore.dateField: Date().timeIntervalSince1970]
             
@@ -56,7 +56,15 @@ extension Persistence {
         }
     }
     
+    public func isCurrentUser(user: String) -> Bool {
+        return currentUser() == user
+    }
+    
     private func dbCollection() -> CollectionReference {
         return Firestore.firestore().collection(K.FStore.collectionName)
+    }
+    
+    private func currentUser() -> String? {
+        return Auth.auth().currentUser?.email
     }
 }

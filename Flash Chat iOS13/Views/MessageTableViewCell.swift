@@ -15,6 +15,8 @@ class MessageTableViewCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var rightAvatarImageView: UIImageView!
     
+    @IBOutlet weak var leftAvatarImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         messageBubble.layer.cornerRadius = messageBubble.layer.frame.size.height / 5
@@ -26,4 +28,22 @@ class MessageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func setup(message: Message, isCurrent: Bool) {
+        var leftImageHidden = false
+        var bubbleBackgroundColor = K.BrandColors.lightPurple
+        var textColor = K.BrandColors.purple
+        
+        if isCurrent {
+            leftImageHidden = true
+            bubbleBackgroundColor = K.BrandColors.purple
+            textColor = K.BrandColors.lightPurple
+        }
+        
+        leftAvatarImageView.isHidden = leftImageHidden
+        rightAvatarImageView.isHidden = !leftImageHidden
+        messageBubble.backgroundColor = UIColor(named: bubbleBackgroundColor)
+        messageLabel.textColor = UIColor(named: textColor)
+        
+        messageLabel.text = message.body
+    }
 }

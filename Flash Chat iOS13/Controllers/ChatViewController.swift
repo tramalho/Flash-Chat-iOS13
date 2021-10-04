@@ -24,10 +24,11 @@ class ChatViewController: UIViewController, Credential {
         
         retrieve()
     }
-    
+        
     @IBAction func sendPressed(_ sender: UIButton) {
         if let message = messageTextfield.text {
             persist(message: message)
+            messageTextfield.text = ""
         } 
     }
     
@@ -42,10 +43,8 @@ extension ChatViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath)
         
         if let cell = cell as? MessageTableViewCell {
-        
             let message = finalMessages[indexPath.row]
-    
-            cell.messageLabel.text = message.body
+            cell.setup(message: message, isCurrent: isCurrentUser(user: message.sender))
         }
 
         return cell
@@ -60,8 +59,13 @@ extension ChatViewController: Persistence {
     
     func resultData(messages: [Message]) {
         DispatchQueue.main.async {
+            
             self.finalMessages = messages
             self.tableView.reloadData()
+            if !self.finalMessages.isEmpty {
+                let indexPath = IndexPath(row: messages.count-1, section: 0)
+                self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            }
         }
     }
 }

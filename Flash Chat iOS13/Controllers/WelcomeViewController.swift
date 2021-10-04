@@ -18,9 +18,16 @@ class WelcomeViewController: UIViewController {
         animateLogo()
     }
     
-    @IBAction func logoutPressed(_ sender: UIBarButtonItem) {
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
     private func animateLogo() {
         self.titleLabel.text = ""
         for (index, value) in K.appName.enumerated() {
@@ -29,4 +36,5 @@ class WelcomeViewController: UIViewController {
             }
         }
     }
+
 }

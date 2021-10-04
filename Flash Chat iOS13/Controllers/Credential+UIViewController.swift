@@ -30,7 +30,7 @@ extension Credential {
         }
     }
     
-    fileprivate func authenticate(emailTextfield: String?, passwordTextfield: String?, isLogin: Bool) {
+    private func authenticate(emailTextfield: String?, passwordTextfield: String?, isLogin: Bool) {
         
         if let email = emailTextfield, !email.isEmpty, let password = passwordTextfield, !password.isEmpty {
             
@@ -58,10 +58,6 @@ extension Credential {
     }
     
     fileprivate func exitOrError(_ error: Error? = nil) {
-        if let error = error {
-            self.showDialog(message: error.localizedDescription)
-        } else {
-            self.navigationController?.popToRootViewController(animated: true)
-        }
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
